@@ -1,0 +1,25 @@
+{
+  "name": "typescript-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "npm run build && npm run preview"
+  },
+  "prettier": {
+    "semi": false
+  },
+  "dependencies": {
+    "vite-plugin-static-md": "^0.3.3"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^22.9.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}
