@@ -3,10 +3,11 @@
   "version": "0.0.1-alpha.2",
   "description": "Tool for scaffolding static html websites built with vite and markdown using `npm create`",
   "type": "module",
-  "bin": "index.js",
+  "bin": "./index.js",
   "files": [
+    "index.js",
     "dist",
-    "template-*"
+    "template-*/**/+(!(package-lock))*"
   ],
   "author": "Andrew Chang-DeWitt",
   "license": "MIT",
@@ -22,6 +23,7 @@
     "prerelease": "npm run clean && npm run build",
     "release": "commit-and-tag-version",
     "prepare": "husky",
+    "prepack": "npm run clean && npm run build",
     "prepublishOnly": "npm run clean && npm run build"
   },
   "repository": {

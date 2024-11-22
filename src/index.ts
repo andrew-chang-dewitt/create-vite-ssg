@@ -16,14 +16,15 @@ With no arguments, start the CLI in interactive mode.`
 interface Args {
   help?: boolean
   overwrite?: boolean
+  verbose?: number
 }
 
 // FIXME: annotate return type?
 async function init() {
   // parse args
   const argv = minimist<Args>(process.argv.slice(2), {
-    default: { help: false, overwrite: false },
-    alias: { h: "help", o: "overwrite" },
+    default: { help: false, overwrite: false, verbose: 1 },
+    alias: { h: "help", o: "overwrite", v: "verbose" },
     string: ["_"],
   })
 
@@ -34,48 +35,45 @@ async function init() {
   }
 
   // get target directory from cli invocation or default to process cwd
-  const targetDir = resolve(argv._[0]?.trim().replace(/\/+$/g, "") || CWD)
+  const targetArg = argv._[0] && resolve(argv._[0].trim().replace(/\/+$/g, ""))
 
   // get project name from user input
   const name =
     // either from cli invocation args
-    parse(targetDir).base ||
+    (targetArg && parse(targetArg).base) ||
     // or via user prompt
     (await input({
       message: "Project name:",
       default: CWD_NAME,
     }))
+  // now if targetDir was undefined, use given name to define it
+  const targetDir = name === CWD_NAME ? CWD : resolve(CWD, name)
 
   // get template desired
   // TODO: there's only once choice for now
   const template = "template-typescript"
   const templateDir = resolve(__dirname, `../${template}`)
-
-  // prepare target directory
-  prepareDirectory(targetDir, argv.overwrite || false)
+  console.log(`templateDir: ${templateDir}`)
 
   // then scaffold from template into target directory
   console.log(`\nScaffolding project in ${targetDir}...\n`)
-  // first by copying the template files
-  const nocopy = /\/(node_modules|dist)\//
-  await cp(templateDir, targetDir, {
-    recursive: true,
-    filter(source, _) {
-      return !nocopy.test(source)
-    },
-  })
+  // prepare target directory
+  await prepareDirectory(targetDir, argv.overwrite || false)
+  // then begin by copying the template files
+  await cp(templateDir, targetDir, { recursive: true })
+  console.log("...Copied files:")
+  for await (const f of glob(`${targetDir}/**/*`)) {
+    console.dir(f)
+  }
+
   // then by updating the package.json with the given project name
+  console.log("...Setting up package.json")
   const pkgPath = resolve(targetDir, "package.json")
   const pkg = JSON.parse(await readFile(pkgPath, { encoding: "utf8" }))
   pkg.name = name
   await writeFile(pkgPath, JSON.stringify(pkg, null, 2), {
     encoding: "utf8",
   })
-
-  let res = []
-  for await (const f of glob(`${targetDir}/**/*`)) {
-    res.push(f)
-  }
 
   console.log("\nDone. Now run:\n")
   if (CWD !== targetDir) console.log(`  cd ${name}`)
@@ -87,26 +85,34 @@ async function prepareDirectory(
   target: string,
   overwrite: boolean,
 ): Promise<void> {
+  console.log(`...Preparing project directory at ${target}`)
   try {
     // first, check if the directory exists
     await readdir(target)
+    console.log("...Directory already exists")
     // if it does & overwrite is enabled, delete it, then recreate it
     if (overwrite) {
+      console.warn(`...Overwrite was set to ${overwrite}, clearing directory`)
       await rm(target, { recursive: true, force: true })
       await mkdir(target, { recursive: true })
     }
     // otherwise do nothing, directory is already prepared
+    console.log("...Directory is ready")
   } catch (e: any) {
     // if directory doesn't exist when attempting to read it above, create it
     if (e.code === "ENOENT") {
+      console.log("...Directory doesn't exist yet, creating new directory")
       await mkdir(target, { recursive: true })
       // explicit return to allow throwing later in the catch block
       // for any unhandled errors
       return
     }
     // otherwise, bubble up the error
+    console.warn(
+      "...Unhandled error encountered while preparing directory, propagating upward...",
+    )
     throw e
   }
 }
 
-init().catch(console.error).then(console.dir)
+init().catch(console.error)

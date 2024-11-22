@@ -7,11 +7,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-dist/
 node_modules/
-template-typescript/dist/
-template-typescript/node_modules/
-template-typescript/package-lock.json
+dist/
 *.local
 
 # Editor directories and files
