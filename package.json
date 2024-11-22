@@ -2,6 +2,7 @@
   "name": "create-vite-ssg",
   "version": "0.0.1-alpha.1",
   "description": "Tool for scaffolding static html websites built with vite and markdown using `npm create`",
+  "type": "module",
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -10,14 +11,18 @@
   "author": "Andrew Chang-DeWitt",
   "license": "MIT",
   "scripts": {
-    "dev": "cd example && npm run dev",
+    "clean": "rm -rf dist && mkdir dist",
     "test": "echo 'TESTS NOT IMPLEMENTED YET'",
-    "prebuild": "rm -rf dist && npm run test",
+    "prebuild": "npm run test",
     "build": "tsc",
-    "prerelease": "npm run build",
+    "predev": "rm -rf tmp && mkdir tmp",
+    "dev": "cd tmp && node ../dist/index.js",
+    "postdev": "rm -rf tmp",
+    "watch": "tsc-watch --onSuccess 'npm run dev'",
+    "prerelease": "npm run clean && npm run build",
     "release": "commit-and-tag-version",
     "prepare": "husky",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
@@ -36,7 +41,8 @@
     ]
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.1.0"
+    "@inquirer/prompts": "^7.1.0",
+    "minimist": "^1.2.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.0",
@@ -45,6 +51,7 @@
     "commit-and-tag-version": "^12.5.0",
     "husky": "^9.1.7",
     "prettier": "^3.3.3",
+    "tsc-watch": "^6.2.1",
     "typescript": "^5.6.3"
   }
 }
