@@ -2,7 +2,11 @@
   "name": "create-vite-ssg",
   "version": "0.0.1-alpha.0",
   "description": "Tool for scaffolding static html websites built with vite and markdown using `npm create`",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "template-*"
+  ],
   "author": "Andrew Chang-DeWitt",
   "license": "MIT",
   "scripts": {
@@ -15,6 +19,14 @@
     "prepare": "husky",
     "prepublishOnly": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrew-chang-dewitt/create-vite-ssg"
+  },
+  "bugs": {
+    "url": "https://github.com/andrew-chang-dewitt/create-vite-ssg/issues"
+  },
+  "homepage": "https://github.com/andrew-chang-dewitt/create-vite-ssg#readme",
   "prettier": {
     "semi": false
   },
