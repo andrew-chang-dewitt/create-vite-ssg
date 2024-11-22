@@ -12,7 +12,7 @@
     "build": "tsc",
     "prerelease": "npm run build",
     "release": "commit-and-tag-version",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepublishOnly": "npm run build"
   },
   "prettier": {
