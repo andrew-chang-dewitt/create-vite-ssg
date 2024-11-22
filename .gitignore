@@ -24,6 +24,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-vite-plugin-static-md-0.1.0.tgz
 BODY.md
-create-vite-ssg-0.0.1-alpha.1.tgz
+*.tgz
