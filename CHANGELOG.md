@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.1](https://github.com/andrew-chang-dewitt/create-vite-ssg/compare/v0.0.1-alpha.3...v0.0.1) (2024-11-24)
+
+
+### Features
+
+* add opt to control ouput verbosity ([0dd0ba8](https://github.com/andrew-chang-dewitt/create-vite-ssg/commit/0dd0ba84d385f8e537f65d586434e7b8cdd4c268))
+
 ## [0.0.1-alpha.3](https://github.com/andrew-chang-dewitt/create-vite-ssg/compare/v0.0.1-alpha.2...v0.0.1-alpha.3) (2024-11-22)
 
 
