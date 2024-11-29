@@ -13,7 +13,7 @@
     "semi": false
   },
   "dependencies": {
-    "vite-plugin-static-md": "^0.3.3"
+    "vite-plugin-static-md": "^0.3.4"
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.7",
