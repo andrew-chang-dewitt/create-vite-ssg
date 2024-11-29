@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.4](https://github.com/andrew-chang-dewitt/create-vite-ssg/compare/v0.0.3...v0.0.4) (2024-11-29)
+
+
+### Features
+
+* update default colors to invert better in dark mode ([5762460](https://github.com/andrew-chang-dewitt/create-vite-ssg/commit/5762460d0776bfcf0df1d8a61551b73a3428f891))
+
 ## [0.0.3](https://github.com/andrew-chang-dewitt/create-vite-ssg/compare/v0.0.2...v0.0.3) (2024-11-29)
 
 
