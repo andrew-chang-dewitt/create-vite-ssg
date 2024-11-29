@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.3](https://github.com/andrew-chang-dewitt/create-vite-ssg/compare/v0.0.2...v0.0.3) (2024-11-29)
+
+
+### Features
+
+* update vite-plugin-static-md plugin to latest ([b817336](https://github.com/andrew-chang-dewitt/create-vite-ssg/commit/b8173364280df7cd0e2536d277915e0a92620a02))
+
 ## [0.0.2](https://github.com/andrew-chang-dewitt/create-vite-ssg/compare/v0.0.1...v0.0.2) (2024-11-29)
 
 
