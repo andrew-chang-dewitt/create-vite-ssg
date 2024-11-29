@@ -11,7 +11,7 @@ table {
 }
 
 thead {
-  background-color: var(--colors-dark-light-alternate);
+  background-color: var(--colors-light-dark);
   color: var(--colors-light);
 }
 

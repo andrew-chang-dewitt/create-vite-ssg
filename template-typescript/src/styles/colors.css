@@ -3,7 +3,7 @@
   --colors-action-dark: #ab6400;
   --colors-dark: #373f42; /* grey */
   --colors-dark-light: #e4ebeb; /* light-grey */
-  --colors-dark-light-alternate: #83898c; /* alternate light-grey */
+  --colors-light-dark: #83898c; /* alternate light-grey */
   --colors-light: #fffdfa; /* white-ish */
   --colors-accent1: #308695; /* blue */
   --colors-accent2: #d45769; /* red */
@@ -15,8 +15,8 @@
     --colors-action-dark: #e69d45; /* orange */
     --colors-action: #ab6400;
     --colors-light: #373f42; /* grey */
-    --colors-dark-light: #e4ebeb; /* light-grey */
-    --colors-dark-light-alternate: #83898c; /* alternate light-grey */
+    --colors-light-dark: #e4ebeb; /* light-grey */
+    --colors-dark-light: #83898c; /* alternate light-grey */
     --colors-dark: #fffdfa; /* white-ish */
     --colors-accent1: #308695; /* blue */
     --colors-accent2: #d45769; /* red */

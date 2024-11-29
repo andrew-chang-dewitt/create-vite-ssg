@@ -75,10 +75,10 @@ blockquote {
 }
 
 blockquote.reply {
-  border-left: medium solid var(--colors-dark-light-alternate);
+  border-left: medium solid var(--colors-light-dark);
   margin-left: 0;
   padding-left: 2rem;
-  color: var(--colors-dark-light-alternate);
+  color: var(--colors-light-dark);
   font-family: var(--fonts-family-serif);
   font-weight: var(--fonts-weight-serif-light);
 }
@@ -96,7 +96,7 @@ mark {
   padding: 0.1rem 0.4rem;
   border-radius: 0.3rem;
   background-color: var(--colors-action-dark);
-  color: var(--colors-light)
+  color: var(--colors-light);
 }
 
 *:focus {
