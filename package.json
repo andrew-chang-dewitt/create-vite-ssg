@@ -1,6 +1,6 @@
 {
   "name": "create-vite-ssg",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Tool for scaffolding static html websites built with vite and markdown using `npm create`",
   "type": "module",
   "bin": "./index.js",
