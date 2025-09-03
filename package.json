@@ -16,7 +16,7 @@
     "test": "echo 'TESTS NOT IMPLEMENTED YET'",
     "prebuild": "npm run test",
     "build": "tsc",
-    "predev": "rm -rf tmp && mkdir tmp",
+    "predev": "npm run build && rm -rf tmp && mkdir tmp",
     "dev": "cd tmp && node ../dist/index.js",
     "postdev": "rm -rf tmp",
     "watch": "tsc-watch --onSuccess 'npm run dev'",
