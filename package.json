@@ -48,7 +48,7 @@
     "minimist": "^1.2.8"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.0",
+    "@commitlint/cli": "^20.0.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@types/node": "^22.9.1",
     "commit-and-tag-version": "^12.5.0",
